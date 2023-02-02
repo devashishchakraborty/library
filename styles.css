@@ -14,15 +14,22 @@
 }
 
 .grid-item{
-    border: 2px solid blue;
+    border: 2px solid blueviolet;
     border-radius: 4px;
     padding: 8px;
 }
 
 .add-book{
     border-radius: 4px;
-    padding: 2px 8px;
+    padding: 2px 32px;
     font-size: 2rem;
+    background-color: #7726c8;
+    border: none;
+    color: white;
+}
+
+.add-book:active{
+    background-color: #9831ff;
 }
 
 form.hidden{
@@ -50,6 +57,10 @@ form.visible button{
 }
 
 form.visible div label{
+    width: 100px;
     text-align: right;
+}
+
+form.visible div label + *{
     flex: 1;
 }
