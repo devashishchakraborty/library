@@ -40,7 +40,9 @@ function addBookToLibrary() {
         form.setAttribute("class", "visible");
     });
 
-    const formSubmit = form.querySelector("button");
+    const formSubmit = form.querySelector("button[type='submit']");
+    const formClose = form.querySelector("button.close");
+
     formSubmit.addEventListener("click", function (event) {
         const title = form.querySelector("input[name='title']");
         if (title.value.length !== 0 && author.value.length !== 0 && pages.value.length !== 0){
@@ -53,6 +55,9 @@ function addBookToLibrary() {
             displayBooks();
             event.preventDefault();
         }
+    });
+    formClose.addEventListener("click", function(event){
+        form.setAttribute("class", "hidden")
     });
 }
 
