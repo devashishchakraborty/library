@@ -2,27 +2,34 @@ let myLibrary = [
     {
         title: "Meditations",
         author: "Marcus Aurelius",
-        pages: 300
+        pages: 300,
+        read: "No"
     },
     {
         title: "Deep Work",
         author: "Cal Newport",
-        pages: 250
+        pages: 250,
+        read: "No"
     },
     {
         title: "Beyond Good and Evil",
         author: "Frederich Nietzsche",
-        pages: 200
+        pages: 200,
+        read: "No"
     },
     {
         title: "How to Win Friends and Influence People.",
         author: "Dale Carnegie",
-        pages: 240
+        pages: 240,
+        read: "No"
     }
 ];
 
-function Book() {
-
+function Book(title, author, pages, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read
 }
 
 function addBookToLibrary() {
@@ -35,20 +42,20 @@ function addBookToLibrary() {
 
     const formSubmit = form.querySelector("button");
     formSubmit.addEventListener("click", function (event) {
-        const author = document.querySelector("input#author");
-        console.log(author.value);
-        // form.setAttribute("class", "hidden");
+        const book = new Book(title.value, author.value, pages.value, read.value);
+        myLibrary.push(book);
+        title.value = "";
+        author.value = "";
+        pages.value = "";
+        form.setAttribute("class", "hidden");
+        displayBooks();
         event.preventDefault();
     });
 }
 
 function displayBooks() {
-    const body = document.querySelector(".container")
-    const grid = document.createElement("div");
-    grid.setAttribute("class", "grid-container");
-
+    grid.textContent = "";
     for (let book of myLibrary) {
-
         const gridItem = document.createElement("div");
         gridItem.setAttribute("class", "grid-item");
         grid.appendChild(gridItem);
@@ -63,5 +70,9 @@ function displayBooks() {
     }
 }
 
-displayBooks();
+const body = document.querySelector(".container");
+const grid = document.createElement("div");
+grid.setAttribute("class", "grid-container");
+
 addBookToLibrary();
+displayBooks();
