@@ -42,14 +42,17 @@ function addBookToLibrary() {
 
     const formSubmit = form.querySelector("button");
     formSubmit.addEventListener("click", function (event) {
-        const book = new Book(title.value, author.value, pages.value, read.value);
-        myLibrary.push(book);
-        title.value = "";
-        author.value = "";
-        pages.value = "";
-        form.setAttribute("class", "hidden");
-        displayBooks();
-        event.preventDefault();
+        const title = form.querySelector("input[name='title']");
+        if (title.value.length !== 0 && author.value.length !== 0 && pages.value.length !== 0){
+            const book = new Book(title.value, author.value, pages.value, read.value);
+            myLibrary.push(book);
+            title.value = "";
+            author.value = "";
+            pages.value = "";
+            form.setAttribute("class", "hidden");
+            displayBooks();
+            event.preventDefault();
+        }
     });
 }
 
@@ -63,7 +66,7 @@ function displayBooks() {
         for (let attribute in book) {
             const itemProperties = document.createElement("div");
             itemProperties.setAttribute("class", attribute)
-            itemProperties.textContent = book[attribute];
+            itemProperties.textContent = `${attribute.charAt(0).toUpperCase() + attribute.slice(1)}: ${book[attribute]}`;
             gridItem.appendChild(itemProperties);
         }
         body.appendChild(grid);
