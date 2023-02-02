@@ -50,14 +50,21 @@ form.visible > *{
     display: flex;
     gap: 8px;
     flex: 1;
+    align-items: center;
 }
 
 form.visible button{
     justify-content: center;
 }
 
+form.visible > div:first-child{
+    justify-content: space-between;
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+
 form.visible div label{
-    width: 100px;
+    min-width: 100px;
     text-align: right;
 }
 
