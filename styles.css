@@ -1,10 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Oleo+Script&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oleo+Script:wght@400;700&family=Roboto&display=swap');
 
 :root{
     box-sizing: border-box;
 }
 
 html, body{
+    height: 100%;
+    min-width: 300px;
     padding: 0;
     margin: 0;
     --color-scheme-main: #6b21a8;
@@ -15,15 +17,36 @@ html, body{
     display: flex;
     flex-direction: column;
     gap: 16px;
+    height: 100%;
 }
 
 header{
     display: flex;
     font-family: 'Oleo Script', cursive;
+    font-weight: 700;
     font-size: 3rem;
     color: white;
     background-color: var(--color-scheme-main);
     padding: 1% 10%;
+}
+
+main{
+    flex: 1;
+}
+
+footer{
+    display: flex;
+    font-family: 'Oleo Script', cursive;
+    background-color: var(--color-scheme-main);
+    color: white;
+    font-size: 1.2rem;
+    justify-content: center;
+    align-items: center;
+}
+
+footer a{
+    text-decoration: none;
+    color: white;
 }
 
 .grid-container{
