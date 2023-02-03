@@ -33,11 +33,12 @@ function Book(title, author, pages, read) {
 }
 
 function addBookToLibrary() {
-    const addBook = document.querySelector(".add-book");
-    const form = document.querySelector("form");
+    const addBook = document.querySelector(".btn-addBook");
+    const form = document.querySelector("form.new-book");
+    const overlay = document.querySelector(".overlay")
 
     addBook.addEventListener("click", function () {
-        form.setAttribute("class", "visible");
+        overlay.setAttribute("class", "overlay visible");
     });
 
     const formSubmit = form.querySelector("button[type='submit']");
@@ -51,13 +52,13 @@ function addBookToLibrary() {
             title.value = "";
             author.value = "";
             pages.value = "";
-            form.setAttribute("class", "hidden");
+            overlay.setAttribute("class", "overlay hidden");
             displayBooks();
             event.preventDefault();
         }
     });
     formClose.addEventListener("click", function(event){
-        form.setAttribute("class", "hidden")
+        overlay.setAttribute("class", "overlay hidden");
     });
 }
 
@@ -78,7 +79,7 @@ function displayBooks() {
     }
 }
 
-const body = document.querySelector(".container");
+const body = document.querySelector(".book-container");
 const grid = document.createElement("div");
 grid.setAttribute("class", "grid-container");
 
