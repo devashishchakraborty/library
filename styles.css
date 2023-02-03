@@ -1,73 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Oleo+Script&family=Roboto&display=swap');
+
 :root{
     box-sizing: border-box;
 }
 
+html, body{
+    padding: 0;
+    margin: 0;
+    --color-scheme-main: #6b21a8;
+    font-family: 'Roboto', sans-serif;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+header{
+    display: flex;
+    font-family: 'Oleo Script', cursive;
+    font-size: 3rem;
+    color: white;
+    background-color: var(--color-scheme-main);
+    padding: 1% 10%;
+}
+
 .grid-container{
     display: grid;
-    grid-template-columns: repeat(2, minmax(200px, 300px));
-    border: 4px solid blueviolet;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    border: 2px solid var(--color-scheme-main);
     border-radius: 8px;
     padding: 16px;
     gap: 16px;
-    width: fit-content;
-    margin-bottom: 16px;
+    min-width: fit-content;
 }
 
 .grid-item{
-    border: 2px solid blueviolet;
+    border: 1px solid var(--color-scheme-main);
     border-radius: 4px;
     padding: 8px;
 }
 
-.add-book{
-    border-radius: 4px;
-    padding: 2px 32px;
+.btn-addBook{
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
     font-size: 2rem;
-    background-color: #7726c8;
+    background-color: var(--color-scheme-main);
     border: none;
     color: white;
+    flex: 0;
 }
 
-.add-book:active{
-    background-color: #9831ff;
+.btn-addBook:active{
+    background-color: #9333ea;
 }
 
-form.hidden{
+div[class="overlay hidden"] {
     display: none;
 }
 
-form.visible{
+div[class="overlay visible"]{
+    position: fixed;
     display: flex;
-    flex-direction: column;
-    border: 1px solid grey;
-    padding: 8px;
-    gap: 8px;
-    width: fit-content;
-    margin-top: 16px;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,0,0, 0.2);
 }
 
-form.visible > *{
+form.new-book{
+    display: flex;
+    flex-direction: column;
+    border: 2px solid var(--color-scheme-main);
+    padding: 16px;
+    gap: 8px;
+    width: fit-content;
+    background-color: white;
+    border-radius: 8px;
+}
+
+form.new-book > *{
     display: flex;
     gap: 8px;
     flex: 1;
     align-items: center;
 }
 
-form.visible button{
+form.new-book button{
     justify-content: center;
 }
 
-form.visible > div:first-child{
+form.new-book > div:first-child{
     justify-content: space-between;
     font-weight: bold;
     font-size: 1.4rem;
 }
 
-form.visible div label{
+form.new-book div label{
     min-width: 100px;
     text-align: right;
 }
 
-form.visible div label + *{
+form.new-book div label + *{
     flex: 1;
 }
