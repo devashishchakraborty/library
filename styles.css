@@ -10,6 +10,8 @@ html, body{
     padding: 0;
     margin: 0;
     --color-scheme-background: #7e22ce;
+    --color-scheme-background-light: #faf5ff;
+    --color-scheme-shadow: #d8b4fe;
     --color-scheme-text: #6b21a8;
     --color-scheme-border-light: #c084fc;
     --color-scheme-border-dark: #6b21a8;
@@ -21,7 +23,7 @@ html, body{
     flex-direction: column;
     gap: 16px;
     height: 100%;
-    background-color: #f3e8ff;
+    background-color: var(--color-scheme-background-light);
 }
 
 header{
@@ -76,14 +78,17 @@ footer a{
 
 /* Add New Book Button */
 .btn-addBook{
+    display: flex;
     border-radius: 50%;
-    height: 50px;
-    width: 50px;
-    font-size: 2rem;
+    font-size: 3.6rem;
+    height: 3.6rem;
+    width: 3.6rem;
     background-color: var(--color-scheme-background);
     border: none;
     color: white;
-    flex: 0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
 }
 
 .btn-addBook:hover{
@@ -107,7 +112,6 @@ div[class="overlay visible"]{
     justify-content: center;
     align-items: center;
     background-color: rgba(0,0,0, 0.4);
-    padding: 0 16px 0 0;
 }
 
 /* Form Element */
@@ -120,6 +124,7 @@ form.new-book{
     background-color: #f3e8ff;
     border-radius: 8px;
     font-size: 1.4rem;
+    margin: 0 16px;
 }
 
 form.new-book > div{
@@ -134,12 +139,14 @@ form.new-book > button[type="submit"]{
     justify-content: center;
     align-items: center;
     font-size: 1.2em;
-    border-radius: 4px;
+    border-radius: 8px;
     border: none;
     align-self: center;
     background-color: var(--color-scheme-background);
     color: white;
-    padding: 4px 16px;
+    height: 1.8em;
+    width: 8em;
+    margin-top: 8px;
 }
 
 form.new-book > div:first-child{
@@ -147,6 +154,7 @@ form.new-book > div:first-child{
     font-weight: bold;
     font-size: 1.4em;
     color: var(--color-scheme-text);
+    margin-bottom: 8px;
 }
 
 form.new-book div label{
@@ -179,15 +187,17 @@ form.new-book div .close{
     border-radius: 50%;
     color: white;
     font-size: 1em;
-    height: 1.6em;
-    width: 1.6em;
+    height: 1.4em;
+    width: 1.4em;
 }
 
-@media only screen and (max-width:550px){
+@media only screen and (max-width:544px){
     form.new-book{
         font-size: 1rem;
     }
-    
+}
+
+@media only screen and (max-width:464px){
     form.new-book div label{
         text-align: left;
     }
