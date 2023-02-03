@@ -9,7 +9,10 @@ html, body{
     min-width: 300px;
     padding: 0;
     margin: 0;
-    --color-scheme-main: #6b21a8;
+    --color-scheme-background: #7e22ce;
+    --color-scheme-text: #6b21a8;
+    --color-scheme-border-light: #c084fc;
+    --color-scheme-border-dark: #6b21a8;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -18,6 +21,7 @@ html, body{
     flex-direction: column;
     gap: 16px;
     height: 100%;
+    background-color: #f3e8ff;
 }
 
 header{
@@ -26,22 +30,26 @@ header{
     font-weight: 700;
     font-size: 3rem;
     color: white;
-    background-color: var(--color-scheme-main);
-    padding: 1% 10%;
+    background-color: var(--color-scheme-background);
+    padding: 0 10%;
+    height: 80px;
+    align-items: center;
 }
 
 main{
     flex: 1;
+    padding: 0 10%;
 }
 
 footer{
     display: flex;
     font-family: 'Oleo Script', cursive;
-    background-color: var(--color-scheme-main);
+    background-color: var(--color-scheme-background);
     color: white;
     font-size: 1.2rem;
     justify-content: center;
     align-items: center;
+    height: 36px;
 }
 
 footer a{
@@ -49,10 +57,11 @@ footer a{
     color: white;
 }
 
+/* Item Display */
 .grid-container{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    border: 2px solid var(--color-scheme-main);
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    border: 2px solid var(--color-scheme-background);
     border-radius: 8px;
     padding: 16px;
     gap: 16px;
@@ -60,26 +69,32 @@ footer a{
 }
 
 .grid-item{
-    border: 1px solid var(--color-scheme-main);
+    border: 1px solid var(--color-scheme-background);
     border-radius: 4px;
     padding: 8px;
 }
 
+/* Add New Book Button */
 .btn-addBook{
     border-radius: 50%;
     height: 50px;
     width: 50px;
     font-size: 2rem;
-    background-color: var(--color-scheme-main);
+    background-color: var(--color-scheme-background);
     border: none;
     color: white;
     flex: 0;
+}
+
+.btn-addBook:hover{
+    cursor: pointer;
 }
 
 .btn-addBook:active{
     background-color: #9333ea;
 }
 
+/* Overlay */
 div[class="overlay hidden"] {
     display: none;
 }
@@ -91,42 +106,89 @@ div[class="overlay visible"]{
     width: 100%;
     justify-content: center;
     align-items: center;
-    background-color: rgba(0,0,0, 0.2);
+    background-color: rgba(0,0,0, 0.4);
+    padding: 0 16px 0 0;
 }
 
+/* Form Element */
 form.new-book{
     display: flex;
     flex-direction: column;
-    border: 2px solid var(--color-scheme-main);
-    padding: 16px;
-    gap: 8px;
+    padding: 24px 32px;
+    gap: 12px;
     width: fit-content;
-    background-color: white;
+    background-color: #f3e8ff;
     border-radius: 8px;
+    font-size: 1.4rem;
 }
 
-form.new-book > *{
+form.new-book > div{
     display: flex;
     gap: 8px;
     flex: 1;
     align-items: center;
+    flex-wrap: wrap;
 }
 
-form.new-book button{
+form.new-book > button[type="submit"]{
     justify-content: center;
+    align-items: center;
+    font-size: 1.2em;
+    border-radius: 4px;
+    border: none;
+    align-self: center;
+    background-color: var(--color-scheme-background);
+    color: white;
+    padding: 4px 16px;
 }
 
 form.new-book > div:first-child{
     justify-content: space-between;
     font-weight: bold;
-    font-size: 1.4rem;
+    font-size: 1.4em;
+    color: var(--color-scheme-text);
 }
 
 form.new-book div label{
-    min-width: 100px;
+    width: 155px;
     text-align: right;
 }
 
 form.new-book div label + *{
     flex: 1;
+    border: 2px solid var(--color-scheme-border-light);
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-size: 0.9em;
+}
+
+form.new-book div label + *:focus{
+    outline: none;
+    border: 2px solid var(--color-scheme-border-dark);
+}
+
+form.new-book div select{
+    padding: 2px 4px;
+    border-radius: 4px;
+    flex: 0;
+}
+
+form.new-book div .close{
+    background-color: var(--color-scheme-background);
+    border: none;
+    border-radius: 50%;
+    color: white;
+    font-size: 1em;
+    height: 1.6em;
+    width: 1.6em;
+}
+
+@media only screen and (max-width:550px){
+    form.new-book{
+        font-size: 1rem;
+    }
+    
+    form.new-book div label{
+        text-align: left;
+    }
 }
