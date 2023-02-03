@@ -1,24 +1,24 @@
 let myLibrary = [
     {
-        title: "Meditations",
+        name: "Meditations",
         author: "Marcus Aurelius",
         pages: 300,
         read: "No"
     },
     {
-        title: "Deep Work",
+        name: "Deep Work",
         author: "Cal Newport",
         pages: 250,
         read: "No"
     },
     {
-        title: "Beyond Good and Evil",
+        name: "Beyond Good and Evil",
         author: "Frederich Nietzsche",
         pages: 200,
         read: "No"
     },
     {
-        title: "How to Win Friends and Influence People.",
+        name: "How to Win Friends and Influence People.",
         author: "Dale Carnegie",
         pages: 240,
         read: "No"
