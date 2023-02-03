@@ -9,33 +9,40 @@
     <title>Library</title>
   </head>
   <body>
-    <div class="container"></div>
-    <button class="add-book">Add Book</button>
-    <form class="hidden" action="" method="get">
+    <div class="overlay hidden">
+      <form class="new-book" action="" method="get">
         <div>
           <div class="form-title">Add a new book</div>
           <button type="button" class="close">&#10799;</button>
         </div>
         <div>
-            <label for="author">Author :</label>
-            <input type="text" id="author" name="author" required>
+          <label for="author">Author :</label>
+          <input type="text" id="author" name="author" required />
         </div>
         <div>
-            <label for="title">Title :</label>
-            <input type="text" id="title" name="title" required>
+          <label for="title">Title :</label>
+          <input type="text" id="title" name="title" required />
         </div>
         <div>
-            <label for="pages">No. of Pages :</label>
-            <input type="number" id="pages" name="pages" required>
+          <label for="pages">No. of Pages :</label>
+          <input type="number" id="pages" name="pages" required />
         </div>
         <div>
-            <label for="read">Read the book?</label>
-            <select name="read" id="read">
-                <option value="yes">Yes</option>
-                <option value="no">No</option>
-            </select>
+          <label for="read">Read the book?</label>
+          <select name="read" id="read">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
         </div>
         <button type="submit">Submit</button>
-    </form>
+      </form>
+    </div>
+    <div class="container">
+      <header>Library</header>
+      <main>
+        <button class="btn-addBook">+</button>
+        <div class="book-container"></div>
+      </main>
+    </div>
   </body>
 </html>
