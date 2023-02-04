@@ -41,7 +41,34 @@ header{
 main{
     flex: 1;
     padding: 0 10%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 }
+
+main > div:first-child{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Description Table */
+.description{
+    border-collapse: collapse;
+    font-family: "Oleo Script", cursive;
+    font-size: 1.4rem;
+    color: var(--color-scheme-text);
+}
+
+.description td{
+    width: 160px;
+    text-align: center;
+}
+
+.description td + td{
+    border-left: 2px solid var(--color-scheme-border-dark);
+}
+
 
 footer{
     display: flex;
@@ -80,23 +107,24 @@ footer a{
 .btn-addBook{
     display: flex;
     border-radius: 50%;
-    font-size: 3.6rem;
-    height: 3.6rem;
-    width: 3.6rem;
     background-color: var(--color-scheme-background);
     border: none;
     color: white;
-    padding: 0;
-    justify-content: center;
+    font-size: 3.2rem;
+    height: 3.2rem;
+    width: 3.2rem;
     align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
 }
 
 .btn-addBook:hover{
     cursor: pointer;
 }
 
-.btn-addBook:active{
-    background-color: #9333ea;
+/* button click behavior */
+button:active{
+    background-color: #9c2aff;
 }
 
 /* Overlay */
@@ -147,6 +175,10 @@ form.new-book > button[type="submit"]{
     height: 1.8em;
     width: 8em;
     margin-top: 8px;
+}
+
+form.new-book > button[type="submit"]:hover{
+    cursor: pointer;
 }
 
 form.new-book > div:first-child{
