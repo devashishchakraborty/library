@@ -12,7 +12,7 @@ html, body{
     --color-scheme-background: #7e22ce;
     --color-scheme-background-light: #faf5ff;
     --color-scheme-shadow: #d8b4fe;
-    --color-scheme-text: #6b21a8;
+    --color-scheme-text: #581c87;
     --color-scheme-border-light: #c084fc;
     --color-scheme-border-dark: #6b21a8;
     font-family: 'Roboto', sans-serif;
@@ -61,8 +61,7 @@ main > div:first-child{
 }
 
 .description td{
-    width: 160px;
-    text-align: center;
+    padding: 0 16px;
 }
 
 .description td + td{
@@ -132,7 +131,7 @@ div[class="overlay hidden"] {
     display: none;
 }
 
-div[class="overlay visible"]{
+div[class="overlay"]{
     position: fixed;
     display: flex;
     height: 100%;
