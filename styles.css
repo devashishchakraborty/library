@@ -16,6 +16,7 @@ html, body{
     --color-scheme-border-light: #c084fc;
     --color-scheme-border-dark: #6b21a8;
     --color-scheme-dark: #581c87;
+    --color-button-click: #9c2aff;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -159,6 +160,7 @@ footer a{
 
 .btn-addBook:hover{
     cursor: pointer;
+    background-color: var(--color-button-click);
 }
 
 /* button click behavior */
@@ -260,6 +262,10 @@ form.new-book div .close{
     font-size: 1em;
     height: 1.4em;
     width: 1.4em;
+}
+
+form.new-book div .close:hover{
+    background-color: var(--color-button-click);
 }
 
 @media only screen and (max-width:544px){
