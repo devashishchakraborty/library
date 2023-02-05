@@ -10,7 +10,7 @@ html, body{
     padding: 0;
     margin: 0;
     --color-scheme-background: #7e22ce;
-    --color-scheme-background-light: #ddd6fe;
+    --color-scheme-background-light: #ede9fe;
     --color-scheme-shadow: #d8b4fe;
     --color-scheme-text: #581c87;
     --color-scheme-border-light: #c084fc;
@@ -43,7 +43,7 @@ main{
     padding: 0 10%;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 32px;
 }
 
 main > div:first-child{
@@ -86,10 +86,10 @@ footer a{
     color: white;
 }
 
-/* Item Display */
+/* Book Display */
 .grid-container{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 32px;
     min-width: fit-content;
 }
@@ -98,30 +98,43 @@ footer a{
     display: flex;
     flex-direction: column;
     text-align: center;
+    align-items: center;
     border-radius: 8px;
+    justify-content: space-around;
+    background-color: var(--color-scheme-background-light);
+    padding: 32px;
+    gap: 8px;
+    font-size: 1.2rem;
 }
 
 .grid-item div:first-child{
-    background-color: var(--color-scheme-dark);
-    border-top-left-radius: inherit;
-    border-top-right-radius: inherit;
-    font-size: 1.4rem;
-    color: white;
-    font-weight: bold;
-    padding: 8px;
-}
-
-.grid-item div + div{
-    background-color: var(--color-scheme-background-light);
     color: var(--color-scheme-dark);
-    padding-top: 8px;
+    font-size: 1.4em;
+    font-weight: bold;
 }
 
-.grid-item div:last-child{
-    border-bottom-left-radius: inherit;
-    border-bottom-right-radius: inherit;
-    padding-bottom: 8px;
+/* Read Button Styles */
+.grid-item button{
+    font-size: 1.2em;
+    width: 160px;
+    height: 40px;
+    border-radius: 8px;
+    cursor: pointer;
 }
+.grid-item .read button{
+    border: 2px solid var(--color-scheme-background);
+}
+
+.grid-item .read button[read="true"]{
+    background-color: var(--color-scheme-background);
+    color: white;
+}
+
+.grid-item .read button[read="false"]{
+    background-color: white;
+    color: var(--color-scheme-dark);
+}
+
 
 /* Add New Book Button */
 .btn-addBook{
