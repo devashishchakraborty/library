@@ -10,11 +10,12 @@ html, body{
     padding: 0;
     margin: 0;
     --color-scheme-background: #7e22ce;
-    --color-scheme-background-light: #faf5ff;
+    --color-scheme-background-light: #ddd6fe;
     --color-scheme-shadow: #d8b4fe;
     --color-scheme-text: #581c87;
     --color-scheme-border-light: #c084fc;
     --color-scheme-border-dark: #6b21a8;
+    --color-scheme-dark: #581c87;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -23,7 +24,6 @@ html, body{
     flex-direction: column;
     gap: 16px;
     height: 100%;
-    background-color: var(--color-scheme-background-light);
 }
 
 header{
@@ -81,6 +81,7 @@ footer{
 }
 
 footer a{
+    display: flex;
     text-decoration: none;
     color: white;
 }
@@ -88,18 +89,38 @@ footer a{
 /* Item Display */
 .grid-container{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    border: 2px solid var(--color-scheme-background);
-    border-radius: 8px;
-    padding: 16px;
-    gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 32px;
     min-width: fit-content;
 }
 
 .grid-item{
-    border: 1px solid var(--color-scheme-background);
-    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.grid-item div:first-child{
+    background-color: var(--color-scheme-dark);
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+    font-size: 1.4rem;
+    color: white;
+    font-weight: bold;
     padding: 8px;
+}
+
+.grid-item div + div{
+    background-color: var(--color-scheme-background-light);
+    color: var(--color-scheme-dark);
+    padding-top: 8px;
+}
+
+.grid-item div:last-child{
+    border-bottom-left-radius: inherit;
+    border-bottom-right-radius: inherit;
+    padding-bottom: 8px;
 }
 
 /* Add New Book Button */
