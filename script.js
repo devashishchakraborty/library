@@ -52,7 +52,7 @@ function addBookToLibrary() {
         const name = form.querySelector("input[name='name']");
 
         // Check if Form is Empty
-        if (title.value.length !== 0 && author.value.length !== 0 && pages.value.length !== 0) {
+        if (name.value.length !== 0 && author.value.length !== 0 && pages.value.length !== 0) {
             const book = new Book(name.value, author.value, pages.value, read.value);
             myLibrary.push(book);   // Adding the Object to library array
 
@@ -64,6 +64,7 @@ function addBookToLibrary() {
             // Executing the functions again after adding book
             displayBooks();
             displayDescription();
+            toggleReadButton();
 
             event.preventDefault();
         }
@@ -71,16 +72,16 @@ function addBookToLibrary() {
 
     // Event Listener for the close button
     formClose.addEventListener("click", function (event) {
-        overlay.setAttribute("class", "overlay hidden");
+        overlay.classList.add("hidden");
     });
 }
 
 function displayBooks() {
     const body = document.querySelector(".book-container");
+    body.textContent = "";
+
     const grid = document.createElement("div");
     grid.setAttribute("class", "grid-container");
-
-    body.textContent = "";
 
     for (let book of myLibrary) {
         const gridItem = document.createElement("div");
@@ -100,7 +101,7 @@ function displayBooks() {
             } else if (attribute === "read"){   // Creating the read button
                 const readButton = document.createElement("button");
                 if (book[attribute]){
-                    readButton.setAttribute("read", "true")
+                    readButton.setAttribute("read", "true");
                     readButton.textContent = "Read";
                 } else{
                     readButton.setAttribute("read", "false")
@@ -110,6 +111,12 @@ function displayBooks() {
             }
             gridItem.appendChild(itemProperties);
         }
+        // Creating a remove Book Button
+        const removeButton = document.createElement("button");
+        removeButton.classList.add("remove");
+        removeButton.textContent = "Remove";
+        gridItem.appendChild(removeButton);
+
         body.appendChild(grid);
     }
 }
@@ -140,6 +147,28 @@ function displayDescription() {
     description.appendChild(booksRead);
 }
 
+function toggleReadButton(){
+    const readButtons = document.querySelectorAll(".grid-item .read button");
+    const readButtonsArray = Array.from(readButtons);   // Creating an Array from NodeList to change myLibrary
+
+    readButtons.forEach(function(read){
+        read.addEventListener("click", function(event){
+            const objectIndex = readButtonsArray.indexOf(read); // Finding the Index of the each book Object
+            if (read.getAttribute("read") === "true"){
+                myLibrary[objectIndex].read = false;    // Setting the read attribute to false after button click
+                read.setAttribute("read", "false");
+                read.textContent = "Not Read";
+            } else{
+                myLibrary[objectIndex].read = true; // Setting the read attribute to true
+                read.setAttribute("read", "true");
+                read.textContent = "Read";
+            }
+            displayDescription();
+        })
+    });
+}
+
 addBookToLibrary();
 displayBooks();
 displayDescription();
+toggleReadButton();
