@@ -77,7 +77,7 @@ footer{
     font-size: 1.2rem;
     justify-content: center;
     align-items: center;
-    height: 36px;
+    padding: 4px;
 }
 
 footer a{
@@ -89,7 +89,7 @@ footer a{
 /* Book Display */
 .grid-container{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 32px;
     min-width: fit-content;
 }
@@ -135,6 +135,12 @@ footer a{
     color: var(--color-scheme-dark);
 }
 
+/* Remove Button */
+.grid-item .remove{
+    border: none;
+    background-color: #ff3758;
+    color: white;
+}
 
 /* Add New Book Button */
 .btn-addBook{
