@@ -31,7 +31,8 @@ function Book(title, author, pages, read) {
     this.name = title;
     this.author = author;
     this.pages = +pages;
-    this.read = read;
+    if (read === "Yes") this.read = true
+    else this.read = false
 }
 
 // Adding Books to Library
@@ -51,7 +52,7 @@ function addBookToLibrary() {
     formSubmit.addEventListener("click", function (event) {
         const name = form.querySelector("input[name='name']");
 
-        // Check if Form is Empty
+        // Check if Form is Filled
         if (name.value.length !== 0 && author.value.length !== 0 && pages.value.length !== 0) {
             const book = new Book(name.value, author.value, pages.value, read.value);
             myLibrary.push(book);   // Adding the Object to library array
@@ -76,6 +77,22 @@ function addBookToLibrary() {
     });
 }
 
+function removeBookFromLibrary(){
+    const removeButtons = document.querySelectorAll(".grid-item .remove");
+    const removeButtonsArray = Array.from(removeButtons);
+
+    removeButtons.forEach(function(button){
+        button.addEventListener("click", function(event){
+            objectIndex = removeButtonsArray.indexOf(button);
+            myLibrary.splice(objectIndex, 1);
+
+            displayDescription(); // Updating the description
+            displayBooks(); // display the books after remove one.
+        })
+    });
+
+}
+
 function displayBooks() {
     const body = document.querySelector(".book-container");
     body.textContent = "";
@@ -98,7 +115,7 @@ function displayBooks() {
                 itemProperties.textContent = `by ${book[attribute]}`;
             } else if (attribute === "pages") {
                 itemProperties.textContent = `${book[attribute]} pages`;
-            } else if (attribute === "read"){   // Creating the read button
+            } else if (attribute === "read"){   // Creating the read and close button
                 const readButton = document.createElement("button");
                 if (book[attribute]){
                     readButton.setAttribute("read", "true");
@@ -119,6 +136,8 @@ function displayBooks() {
 
         body.appendChild(grid);
     }
+    // Execute the function after displaying
+    removeBookFromLibrary();
 }
 
 function displayDescription() {
