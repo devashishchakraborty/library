@@ -11,8 +11,6 @@ html, body{
     margin: 0;
     --color-scheme-background: #7e22ce;
     --color-scheme-background-light: #ede9fe;
-    --color-scheme-shadow: #d8b4fe;
-    --color-scheme-text: #581c87;
     --color-scheme-border-light: #c084fc;
     --color-scheme-border-dark: #6b21a8;
     --color-scheme-dark: #581c87;
@@ -58,7 +56,7 @@ main > div:first-child{
     border-collapse: collapse;
     font-family: "Oleo Script", cursive;
     font-size: 1.4rem;
-    color: var(--color-scheme-text);
+    color: var(--color-scheme-dark);
 }
 
 .description td{
@@ -226,7 +224,7 @@ form.new-book > div:first-child{
     justify-content: space-between;
     font-weight: bold;
     font-size: 1.4em;
-    color: var(--color-scheme-text);
+    color: var(--color-scheme-dark);
     margin-bottom: 8px;
 }
 
