@@ -179,4 +179,3 @@ function toggleReadButton(){
 addBookToLibrary();
 displayBooks();
 displayDescription();
-toggleReadButton();
