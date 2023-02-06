@@ -11,12 +11,6 @@ let myLibrary = [
         author: "Frederich Nietzsche",
         pages: 192,
         read: false
-    },
-    {
-        name: "How to Win Friends andgit Influence People",
-        author: "Dale Carnegie",
-        pages: 240,
-        read: true
     }
 ];
 
