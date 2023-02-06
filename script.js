@@ -53,7 +53,6 @@ function addBookToLibrary() {
             // Executing the functions again after adding book
             displayBooks();
             displayDescription();
-            toggleReadButton();
 
             event.preventDefault();
         }
