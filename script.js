@@ -131,6 +131,7 @@ function displayBooks() {
         body.appendChild(grid);
     }
     // Execute the function after displaying
+    toggleReadButton();
     removeBookFromLibrary();
 }
 
