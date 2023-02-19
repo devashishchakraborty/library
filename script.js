@@ -1,18 +1,5 @@
 // Main Library Array
-let myLibrary = [
-    {
-        name: "Meditations",
-        author: "Marcus Aurelius",
-        pages: 228,
-        read: true
-    },
-    {
-        name: "Beyond Good and Evil",
-        author: "Frederich Nietzsche",
-        pages: 192,
-        read: false
-    }
-];
+let myLibrary = [];
 
 // Creating a book Constructor Function
 function Book(title, author, pages, read) {
