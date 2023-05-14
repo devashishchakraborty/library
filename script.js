@@ -2,12 +2,16 @@
 let myLibrary = [];
 
 // Creating a book Constructor Function
-function Book(title, author, pages, read) {
-    this.name = title;
-    this.author = author;
-    this.pages = +pages;
-    if (read === "Yes") this.read = true
-    else this.read = false
+class Book {
+    constructor(title, author, pages, read) {
+        this.name = title;
+        this.author = author;
+        this.pages = +pages;
+        if (read === "Yes")
+            this.read = true;
+        else
+            this.read = false;
+    }
 }
 
 // Adding Books to Library
