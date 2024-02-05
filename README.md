@@ -1,6 +1,6 @@
 # Library
 ## About
-- Library Project created using HTML, CSS and Vanilla Javascript following TheOdinProject's [curriculum](https://theodinproject.com)
+- Library Project created using HTML, CSS and Vanilla Javascript
 - Live Preview -> [Here](https://devashishchakraborty.github.io/library)
 ## Screenshots
 ![screenshot2](images/screenshot2.png)
